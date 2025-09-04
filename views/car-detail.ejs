@@ -1,0 +1,142 @@
+<!-- Car Detail Section -->
+<section class="car-detail-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5">
+                <!-- Car Image -->
+                <div class="car-image mb-4">
+                    <div class="main-image mb-3">
+                        <img src="<%= car.imageAddress || '/uploads/default-car.jpg' %>"
+                            alt="<%= car.year %> <%= car.make %> <%= car.model %>"
+                            class="img-fluid rounded car-detail-img">
+                    </div>
+                </div>
+
+                <!-- Car Description -->
+                <div class="car-description">
+                    <h3 class="text-light mb-3">Description</h3>
+                    <p>
+                        <%= car.description
+                            || 'This vehicle is in excellent condition and has been well-maintained. Perfect for those looking for reliability and performance.'
+                            %>
+                    </p>
+                </div>
+
+                <!-- Key Features -->
+                <% if (car.keyFeatures && car.keyFeatures.length> 0) { %>
+                    <div class="key-features mt-4">
+                        <h3 class="text-light mb-3">Key Features</h3>
+                        <div class="row">
+                            <% car.keyFeatures.forEach(feature=> { %>
+                                <div class="col-md-6 mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span class="text-light">
+                                        <%= feature %>
+                                    </span>
+                                </div>
+                                <% }); %>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Car Info Card -->
+                <div class="car-info-card p-4 mb-4">
+                    <h1 class="car-title text-light mb-3">
+                        <%= car.year %>
+                            <%= car.make %>
+                                <%= car.model %>
+                    </h1>
+                    <div class="price-section mb-4">
+                        <span class="price text-success fw-bold display-5">$<%= car.price.toLocaleString() %></span>
+                    </div>
+
+                    <!-- Car Specifications -->
+                    <div class="car-specs mb-4">
+                        <h4 class="text-light mb-3">Specifications</h4>
+                        <div class="spec-item mb-2">
+                            <span class="spec-label">Mileage:</span>
+                            <span class="spec-value">
+                                <%= car.mileage.toLocaleString() %> miles
+                            </span>
+                        </div>
+                        <% if (car.engine) { %>
+                            <div class="spec-item mb-2">
+                                <span class="spec-label">Engine:</span>
+                                <span class="spec-value">
+                                    <%= car.engine %>
+                                </span>
+                            </div>
+                            <% } %>
+                                <% if (car.horsepower) { %>
+                                    <div class="spec-item mb-2">
+                                        <span class="spec-label">Horsepower:</span>
+                                        <span class="spec-value">
+                                            <%= car.horsepower %> HP
+                                        </span>
+                                    </div>
+                                    <% } %>
+                                        <div class="spec-item mb-2">
+                                            <span class="spec-label">Transmission:</span>
+                                            <span class="spec-value">
+                                                <%= car.transmission %>
+                                            </span>
+                                        </div>
+                                        <% if (car.drivetrain) { %>
+                                            <div class="spec-item mb-2">
+                                                <span class="spec-label">Drivetrain:</span>
+                                                <span class="spec-value">
+                                                    <%= car.drivetrain %>
+                                                </span>
+                                            </div>
+                                            <% } %>
+                                                <div class="spec-item mb-2">
+                                                    <span class="spec-label">Fuel Type:</span>
+                                                    <span class="spec-value">
+                                                        <%= car.fuelType %>
+                                                    </span>
+                                                </div>
+                                                <% if (car.mpg) { %>
+                                                    <div class="spec-item mb-2">
+                                                        <span class="spec-label">MPG:</span>
+                                                        <span class="spec-value">
+                                                            <%= car.mpg %> combined
+                                                        </span>
+                                                    </div>
+                                                    <% } %>
+                                                        <% if (car.exteriorColor) { %>
+                                                            <div class="spec-item mb-2">
+                                                                <span class="spec-label">Exterior:</span>
+                                                                <span class="spec-value">
+                                                                    <%= car.exteriorColor %>
+                                                                </span>
+                                                            </div>
+                                                            <% } %>
+                                                                <% if (car.interiorColor) { %>
+                                                                    <div class="spec-item mb-2">
+                                                                        <span class="spec-label">Interior:</span>
+                                                                        <span class="spec-value">
+                                                                            <%= car.interiorColor %>
+                                                                        </span>
+                                                                    </div>
+                                                                    <% } %>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="fas fa-phone me-2"></i>Contact Dealer
+                        </button>
+                        <button class="btn btn-outline-primary btn-lg w-100 mb-3">
+                            <i class="fas fa-calendar me-2"></i>Schedule Test Drive
+                        </button>
+                        <button class="btn btn-outline-light btn-lg w-100">
+                            <i class="fas fa-heart me-2"></i>Save to Favorites
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
