@@ -28,5 +28,8 @@
         "nodejs"
     ],
     "author": "MaxCar",
-    "license": "MIT"
+    "license": "MIT",
+    "engines": {
+        "node": "18.x"
+    }
 }
