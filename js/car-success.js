@@ -77,7 +77,7 @@ function displayCarPreview(car) {
 function setupViewButton(carId) {
     const viewBtn = document.getElementById('viewCarBtn');
     if (viewBtn) {
-        viewBtn.href = `car-detail.html?id=${carId}`;
+        viewBtn.href = `/car-detail?id=${carId}`;
     }
 }
 

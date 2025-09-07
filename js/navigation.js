@@ -4,27 +4,34 @@ class NavigationManager {
         this.currentPage = this.getCurrentPage();
         this.menuItems = [
             { name: 'Home', href: '/buy', id: 'home' },
-            { name: 'About', href: 'index.html', id: 'about' },
-            { name: 'Sell', href: 'sell.html', id: 'sell' },
-            { name: 'Contact', href: 'contact.html', id: 'contact' },
+            { name: 'About', href: '/about', id: 'about' },
+            { name: 'Sell', href: '/sell', id: 'sell' },
+            { name: 'Contact', href: '/contact', id: 'contact' },
         ];
     }
 
     getCurrentPage() {
         const path = window.location.pathname;
-        const page = path.split('/').pop() || 'index.html';
+        const page = path.split('/').pop() || '/';
         return page;
     }
 
     getActivePageId() {
         const pageMap = {
             '/buy': 'home',
-            'index.html': 'about',
-            'sell.html': 'sell',
-            'contact.html': 'contact',
-            'car-detail.html': 'home', // Car detail pages are part of home/buy section
-            'add-car.html': 'add-car',
-            'car-success.html': 'add-car'
+            'buy': 'home',
+            '/about': 'about',
+            'about': 'about',
+            '/sell': 'sell',
+            'sell': 'sell',
+            '/contact': 'contact',
+            'contact': 'contact',
+            '/car-detail': 'home', // Car detail pages are part of home/buy section
+            'car-detail': 'home',
+            '/add-car': 'add-car',
+            'add-car': 'add-car',
+            '/car-success': 'add-car',
+            'car-success': 'add-car'
         };
         return pageMap[this.currentPage] || 'home';
     }
