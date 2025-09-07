@@ -172,6 +172,11 @@ app.get('/api/cars/:id', checkDBConnection, async (req, res) => {
 // Add new car
 app.post('/api/cars', checkDBConnection, async (req, res) => {
     try {
+        console.log('=== CAR CREATION DEBUG ===');
+        console.log('Mongoose connection state:', mongoose.connection.readyState);
+        console.log('Connection host:', mongoose.connection.host);
+        console.log('Environment check:', process.env.MONGODB_URI ? 'URI configured' : 'URI missing');
+
         const carData = {
             make: req.body.make,
             model: req.body.model,
@@ -191,14 +196,24 @@ app.post('/api/cars', checkDBConnection, async (req, res) => {
             imageAddress: req.body.imageAddress || '/uploads/default-car.jpg'
         };
 
+        console.log('Creating car with data:', JSON.stringify(carData, null, 2));
+
         const car = new Car(carData);
+        console.log('Car model created, attempting to save...');
+
         const savedCar = await car.save();
+        console.log('Car saved successfully:', savedCar._id);
 
         res.status(201).json({
             message: 'Car added successfully!',
             car: savedCar
         });
     } catch (error) {
+        console.error('=== CAR CREATION ERROR ===');
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+        console.error('Mongoose state during error:', mongoose.connection.readyState);
+
         res.status(400).json({ message: error.message });
     }
 });
