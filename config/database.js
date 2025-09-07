@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        // MongoDB connection string - replace with your actual MongoDB URI
+        // For Vercel deployment - use MongoDB Atlas
         const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/maxcar';
-
-        const conn = await mongoose.connect(mongoURI);
+        
+        // Serverless-friendly options
+        const conn = await mongoose.connect(mongoURI, {
+            bufferCommands: false,
+            serverSelectionTimeoutMS: 5000,
+        });
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
 

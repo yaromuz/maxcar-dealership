@@ -25,6 +25,9 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('.'));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Configure multer for image uploads
 const storage = multer.diskStorage({
