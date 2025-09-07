@@ -48,8 +48,8 @@ app.get('/debug-css', (req, res) => {
 
 // Test route to check if server is working
 app.get('/test', (req, res) => {
-    res.json({ 
-        message: 'Server is working!', 
+    res.json({
+        message: 'Server is working!',
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development',
         mongodb: process.env.MONGODB_URI ? 'configured' : 'not configured'
@@ -221,7 +221,7 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.render('contact', { title: 'About Us - MaxCar' });
+    res.render('about', { title: 'About Us - MaxCar' });
 });
 
 app.get('/add-car', (req, res) => {
