@@ -18,8 +18,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'layout');
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB (non-blocking)
+connectDB().catch(err => {
+    console.error('MongoDB connection failed:', err.message);
+    console.log('Running without database connection...');
+});
 
 // Middleware
 app.use(express.json());
@@ -41,6 +44,16 @@ app.get('/debug-css', (req, res) => {
         <link href="/css/style.css" rel="stylesheet">
         <style>body { background: red; color: white; }</style>
     `);
+});
+
+// Test route to check if server is working
+app.get('/test', (req, res) => {
+    res.json({ 
+        message: 'Server is working!', 
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development',
+        mongodb: process.env.MONGODB_URI ? 'configured' : 'not configured'
+    });
 });
 
 // Configure multer for image uploads
@@ -205,6 +218,10 @@ app.get('/sell', (req, res) => {
 
 app.get('/contact', (req, res) => {
     res.render('contact', { title: 'Contact Us - MaxCar' });
+});
+
+app.get('/about', (req, res) => {
+    res.render('contact', { title: 'About Us - MaxCar' });
 });
 
 app.get('/add-car', (req, res) => {
