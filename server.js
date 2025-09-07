@@ -18,11 +18,27 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'layout');
 
-// Connect to MongoDB (non-blocking)
-connectDB().catch(err => {
+// Connect to MongoDB (await connection)
+let isDBConnected = false;
+connectDB().then(() => {
+    isDBConnected = true;
+    console.log('Database connection established');
+}).catch(err => {
     console.error('MongoDB connection failed:', err.message);
     console.log('Running without database connection...');
+    isDBConnected = false;
 });
+
+// Middleware to check DB connection
+const checkDBConnection = (req, res, next) => {
+    if (!isDBConnected) {
+        return res.status(503).json({
+            error: 'Database connection not available',
+            message: 'Please try again in a moment as the database is connecting...'
+        });
+    }
+    next();
+};
 
 // Middleware
 app.use(express.json());
@@ -88,7 +104,7 @@ const upload = multer({
 // Routes
 
 // Get all cars
-app.get('/api/cars', async (req, res) => {
+app.get('/api/cars', checkDBConnection, async (req, res) => {
     try {
         const cars = await Car.find({ status: 'available' }).sort({ createdAt: -1 });
         res.json(cars);
@@ -98,7 +114,7 @@ app.get('/api/cars', async (req, res) => {
 });
 
 // Get single car by ID
-app.get('/api/cars/:id', async (req, res) => {
+app.get('/api/cars/:id', checkDBConnection, async (req, res) => {
     try {
         const car = await Car.findById(req.params.id);
         if (!car) {
@@ -111,7 +127,7 @@ app.get('/api/cars/:id', async (req, res) => {
 });
 
 // Add new car
-app.post('/api/cars', async (req, res) => {
+app.post('/api/cars', checkDBConnection, async (req, res) => {
     try {
         const carData = {
             make: req.body.make,
@@ -145,7 +161,7 @@ app.post('/api/cars', async (req, res) => {
 });
 
 // Update car
-app.put('/api/cars/:id', async (req, res) => {
+app.put('/api/cars/:id', checkDBConnection, async (req, res) => {
     try {
         const carData = {
             make: req.body.make,
@@ -181,7 +197,7 @@ app.put('/api/cars/:id', async (req, res) => {
 });
 
 // Delete car
-app.delete('/api/cars/:id', async (req, res) => {
+app.delete('/api/cars/:id', checkDBConnection, async (req, res) => {
     try {
         const car = await Car.findByIdAndDelete(req.params.id);
         if (!car) {

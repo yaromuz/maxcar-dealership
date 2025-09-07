@@ -7,8 +7,10 @@ const connectDB = async () => {
 
         // Serverless-friendly options
         const conn = await mongoose.connect(mongoURI, {
-            bufferCommands: false,
-            serverSelectionTimeoutMS: 5000,
+            bufferCommands: true, // Enable buffering for better reliability
+            serverSelectionTimeoutMS: 30000, // Increase timeout for serverless
+            socketTimeoutMS: 45000,
+            maxPoolSize: 10,
         });
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
