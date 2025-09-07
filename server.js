@@ -85,7 +85,14 @@ app.get('/test', (req, res) => {
 app.get('/debug-db', async (req, res) => {
     try {
         const dbState = mongoose.connection.readyState;
-        const testDoc = await Car.countDocuments();
+        const mongoUri = process.env.MONGODB_URI;
+
+        let testDoc = 'Connection not ready';
+        try {
+            testDoc = await Car.countDocuments();
+        } catch (e) {
+            testDoc = `Error: ${e.message}`;
+        }
 
         res.json({
             mongooseState: dbState,
@@ -96,18 +103,19 @@ app.get('/debug-db', async (req, res) => {
                 3: 'disconnecting'
             }[dbState],
             carCount: testDoc,
-            connectionHost: mongoose.connection.host,
-            connectionName: mongoose.connection.name
+            connectionHost: mongoose.connection.host || 'Not connected',
+            connectionName: mongoose.connection.name || 'Not connected',
+            envVarConfigured: mongoUri ? 'YES' : 'NO',
+            envVarPrefix: mongoUri ? mongoUri.substring(0, 25) + '...' : 'Not set'
         });
     } catch (error) {
         res.status(500).json({
             error: error.message,
-            mongooseState: mongoose.connection.readyState
+            mongooseState: mongoose.connection.readyState,
+            envVarConfigured: process.env.MONGODB_URI ? 'YES' : 'NO'
         });
     }
-});
-
-// Configure multer for image uploads
+});// Configure multer for image uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads/')
