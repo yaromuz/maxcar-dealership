@@ -24,10 +24,24 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('.'));
+
+// Static file serving - fixed for Vercel
+app.use(express.static(path.join(__dirname)));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Debug route for CSS
+app.get('/debug-css', (req, res) => {
+    res.send(`
+        <h1>CSS Debug</h1>
+        <p>CSS Path: ${path.join(__dirname, 'css', 'style.css')}</p>
+        <p>JS Path: ${path.join(__dirname, 'js')}</p>
+        <p>Current directory: ${__dirname}</p>
+        <link href="/css/style.css" rel="stylesheet">
+        <style>body { background: red; color: white; }</style>
+    `);
+});
 
 // Configure multer for image uploads
 const storage = multer.diskStorage({
@@ -165,11 +179,6 @@ app.delete('/api/cars/:id', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-
-// Serve static files
-app.use('/uploads', express.static('uploads'));
-app.use('/css', express.static('css'));
-app.use('/js', express.static('js'));
 
 // EJS Routes
 app.get('/', async (req, res) => {

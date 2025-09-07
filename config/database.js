@@ -4,7 +4,7 @@ const connectDB = async () => {
     try {
         // For Vercel deployment - use MongoDB Atlas
         const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/maxcar';
-        
+
         // Serverless-friendly options
         const conn = await mongoose.connect(mongoURI, {
             bufferCommands: false,
