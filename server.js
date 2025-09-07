@@ -36,15 +36,19 @@ connectDB().then((conn) => {
     useInMemoryStorage = true;
 });
 
-// Middleware to check DB connection
+// Simplified middleware - just check if mongoose is connected
 const checkDBConnection = (req, res, next) => {
-    if (!isDBConnected && !useInMemoryStorage) {
+    // If mongoose is connected, allow the request
+    if (mongoose.connection.readyState === 1) {
+        next();
+    } else if (!isDBConnected && !useInMemoryStorage) {
         return res.status(503).json({
             error: 'Database connection not available',
             message: 'Please try again in a moment as the database is connecting...'
         });
+    } else {
+        next();
     }
-    next();
 };// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -75,6 +79,32 @@ app.get('/test', (req, res) => {
         environment: process.env.NODE_ENV || 'development',
         mongodb: process.env.MONGODB_URI ? 'configured' : 'not configured'
     });
+});
+
+// Debug route for database connection
+app.get('/debug-db', async (req, res) => {
+    try {
+        const dbState = mongoose.connection.readyState;
+        const testDoc = await Car.countDocuments();
+
+        res.json({
+            mongooseState: dbState,
+            stateDescription: {
+                0: 'disconnected',
+                1: 'connected',
+                2: 'connecting',
+                3: 'disconnecting'
+            }[dbState],
+            carCount: testDoc,
+            connectionHost: mongoose.connection.host,
+            connectionName: mongoose.connection.name
+        });
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+            mongooseState: mongoose.connection.readyState
+        });
+    }
 });
 
 // Configure multer for image uploads
