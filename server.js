@@ -20,27 +20,32 @@ app.set('layout', 'layout');
 
 // Connect to MongoDB (await connection)
 let isDBConnected = false;
-connectDB().then(() => {
-    isDBConnected = true;
-    console.log('Database connection established');
+let useInMemoryStorage = false;
+
+connectDB().then((conn) => {
+    if (conn) {
+        isDBConnected = true;
+        console.log('Database connection established');
+    } else {
+        useInMemoryStorage = true;
+        console.log('Using in-memory storage as fallback');
+    }
 }).catch(err => {
     console.error('MongoDB connection failed:', err.message);
-    console.log('Running without database connection...');
-    isDBConnected = false;
+    console.log('Using in-memory storage as fallback');
+    useInMemoryStorage = true;
 });
 
 // Middleware to check DB connection
 const checkDBConnection = (req, res, next) => {
-    if (!isDBConnected) {
+    if (!isDBConnected && !useInMemoryStorage) {
         return res.status(503).json({
             error: 'Database connection not available',
             message: 'Please try again in a moment as the database is connecting...'
         });
     }
     next();
-};
-
-// Middleware
+};// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
