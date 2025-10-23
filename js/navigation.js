@@ -42,8 +42,8 @@ class NavigationManager {
         const navHTML = `
         <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="pictres/YARO.svg" alt="YARO Logo" style="height: 40px;">
+                <a class="navbar-brand d-flex align-items-center" href="/" style="margin-bottom: 0; padding-top: 0; padding-bottom: 0;">
+                    <img src="/pictres/YARO.svg" alt="YARO Logo" style="height: 40px; display: block; vertical-align: middle;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

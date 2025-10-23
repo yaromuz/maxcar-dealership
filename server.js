@@ -58,6 +58,7 @@ app.use(express.static(path.join(__dirname)));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/pictres', express.static(path.join(__dirname, 'pictres')));
 
 // Debug route for CSS
 app.get('/debug-css', (req, res) => {
