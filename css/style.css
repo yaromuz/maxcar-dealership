@@ -230,7 +230,7 @@ footer.footer-custom {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnd4aG5nbmMxdTF2azRqaTdnNjF1Nzk1eGZqdTZibXR5dnN3MWE5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WBRMgCYLLHK5xd3jNY/giphy.gif') center center;
+
     background-size: cover;
     background-repeat: no-repeat;
     animation: slowZoom 20s ease-in-out infinite alternate;
@@ -497,6 +497,7 @@ footer.footer-custom {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1.1);
     }
@@ -507,6 +508,7 @@ footer.footer-custom {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -514,9 +516,12 @@ footer.footer-custom {
 }
 
 @keyframes successPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
