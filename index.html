@@ -4,117 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaxCar - Buy & Sell Cars</title>
+    <title>YAROtest Welcome</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Main Styles -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Language Animation Styles -->
+    <link rel="stylesheet" href="css/languages.css">
 </head>
 
-<body class="bg-dark text-light">
+<body>
     <!-- Navbar (will be injected by navigation.js) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <!-- Navigation content will be replaced by JavaScript -->
     </nav>
 
-    <div class="main-content">
-        <!-- Hero Section with Animated Background -->
-        <section class="hero-section-animated">
-            <div class="hero-background">
-                <!-- Car driving animation background -->
-                <div class="animated-bg"></div>
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center min-vh-75">
-                    <div class="col-lg-8 text-center hero-content">
-                        <h1 class="display-3 fw-bold text-white mb-4 hero-title">Find Your Perfect Car</h1>
-                        <p class="lead fs-4 mb-5 text-white hero-subtitle">Browse our extensive collection of premium
-                            vehicles. From luxury
-                            sedans to sports cars, we have the perfect match for you.</p>
-                        <div class="d-flex gap-4 justify-content-center flex-wrap hero-buttons">
-                            <a href="/buy" class="btn btn-primary btn-lg px-5 py-3 fs-5">Browse Cars</a>
-                            <a href="/sell" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">Sell Your Car</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Features Section -->
-        <section class="features-section py-5 bg-darker">
-            <div class="container">
-                <div class="row text-center mb-5">
-                    <div class="col-12">
-                        <h2 class="text-light mb-3">Why Choose MaxCar?</h2>
-                        <p>Your trusted partner in automotive excellence</p>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="feature-card text-center p-4">
-                            <div class="feature-icon mb-3">
-                                <svg width="48" height="48" fill="currentColor" class="text-primary"
-                                    viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                    <path
-                                        d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg>
-                            </div>
-                            <h4 class="text-light">Quality Guaranteed</h4>
-                            <p>Every vehicle undergoes thorough inspection and comes with our quality
-                                guarantee.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card text-center p-4">
-                            <div class="feature-icon mb-3">
-                                <svg width="48" height="48" fill="currentColor" class="text-primary"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zM1 6v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6H1z" />
-                                    <path d="M2 7.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
-                                </svg>
-                            </div>
-                            <h4 class="text-light">Easy Financing</h4>
-                            <p>Flexible payment options and competitive rates to make your dream car
-                                affordable.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card text-center p-4">
-                            <div class="feature-icon mb-3">
-                                <svg width="48" height="48" fill="currentColor" class="text-primary"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1.001.025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
-                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
-                                    <path
-                                        d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
-                                </svg>
-                            </div>
-                            <h4 class="text-light">Fast Service</h4>
-                            <p>Quick and efficient service to get you behind the wheel of your new
-                                car faster.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section py-5">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h2 class="text-light mb-3">Ready to Find Your Next Car?</h2>
-                        <p class="mb-4">Join thousands of satisfied customers who found their perfect vehicle
-                            with MaxCar.</p>
-                        <a href="/buy" class="btn btn-primary btn-lg">Start Shopping Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="text-changer">
+        <!-- <p class="intro-text"><i class="bi bi-translate"></i></p> -->
+        <div class="rolles-container">
+            <span class="role">Hello</span>
+            <span class="role">Привіт</span>
+            <span class="role">Ahoj</span>
+            <span class="role">Hej</span>
+            <span class="role">你好</span>
+            <span class="role">Γειά σου</span>
+            <span class="role">Bonjour</span>
+            <span class="role">Hola</span>
+            <span class="role">Ciao</span>
+            <span class="role">Olá</span>
+            <span class="role">Hallo</span>
+            <span class="role">こんにちは</span>
+            <span class="role">안녕하세요</span>
+            <span class="role">Salut</span>
+            <span class="role">Szia</span>
+            <span class="role">Hei</span>
+            <span class="role">Merhaba</span>
+            <span class="role">Halo</span>
+            <span class="role">สวัสดี</span>
+            <span class="role">Xin chào</span>
+            <span class="role">Sawubona</span>
+            <span class="role">Jambo</span>
+            <span class="role">Shalom</span>
+            <span class="role">مرحبا</span>
+            <span class="role">नमस्ते</span>
+            <span class="role">Salam</span>
+            <span class="role">Здравствуйте</span>
+            <span class="role">Cześć</span>
+            <span class="role">Dobrý den</span>
+            <span class="role">Hyvää päivää</span>
+            <span class="role">Helo</span>
+            <span class="role">Dia dhuit</span>
+            <span class="role">Kumusta</span>
+            <span class="role">Sawasdee</span>
+            <span class="role">Selamat</span>
+            <span class="role">Kamusta</span>
+            <span class="role">Tere</span>
+            <span class="role">Labas</span>
+            <span class="role">Sveiki</span>
+            <span class="role">Zdravo</span>
+            <span class="role">Bună</span>
+            <span class="role">Pozdrav</span>
+        </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer-custom mt-5">
