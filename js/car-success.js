@@ -42,25 +42,25 @@ function displayCarPreview(car) {
                 <h3 class="text-primary mb-3">${car.fullName}</h3>
                 <div class="row g-2 mb-3">
                     <div class="col-sm-6">
-                        <small class="text-muted">Engine:</small><br>
+                        <small>Engine:</small><br>
                         <strong>${car.engine}</strong>
                     </div>
                     <div class="col-sm-6">
-                        <small class="text-muted">Horsepower:</small><br>
+                        <small>Horsepower:</small><br>
                         <strong>${car.horsepower}</strong>
                     </div>
                     <div class="col-sm-6">
-                        <small class="text-muted">Transmission:</small><br>
+                        <small>Transmission:</small><br>
                         <strong>${car.transmission}</strong>
                     </div>
                     <div class="col-sm-6">
-                        <small class="text-muted">Mileage:</small><br>
+                        <small>Mileage:</small><br>
                         <strong>${car.mileage}</strong>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <small class="text-muted">Price:</small><br>
+                        <small>Price:</small><br>
                         <span class="h4 text-success fw-bold">$${car.price.toLocaleString()}</span>
                     </div>
                     <div class="text-end">

@@ -1,0 +1,58 @@
+<!-- Projects Hero Section -->
+<section class="projects-hero py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h1 class="display-3 fw-bold text-light mb-4 fade-in">My Projects</h1>
+                <p class="lead fs-4 text-light">Exploring ideas, building solutions, and learning along the way</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid Section -->
+<section class="projects-grid py-5">
+    <!-- Decorative Elements -->
+    <div class="decorative-lines">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            <% for(let i=1; i <=6; i++) { %>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="code-lines">
+                                <span class="code-line"></span>
+                                <span class="code-line"></span>
+                                <span class="code-line"></span>
+                                <span class="code-line"></span>
+                                <span class="code-line"></span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-number">
+                                    <span class="text-primary">0<%= i %></span>
+                                </div>
+                                <h3 class="text-light mb-3">Project <%= i %>
+                                </h3>
+                                <p class="project-description">Coming soon...</p>
+                                <div class="project-tags mt-3">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">CSS</span>
+                                </div>
+                                <div class="project-status mt-3">
+                                    <span class="badge bg-primary">In Development</span>
+                                </div>
+                            </div>
+                            <div class="project-hover-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</section>

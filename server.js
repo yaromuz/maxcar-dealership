@@ -279,16 +279,16 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/buy', async (req, res) => {
-    try {
-        const cars = await Car.find({ status: 'available' }).sort({ createdAt: -1 });
-        res.render('buy', { cars, title: 'Buy Cars - MaxCar' });
-    } catch (error) {
-        res.render('buy', { cars: [], title: 'Buy Cars - MaxCar' });
-    }
+    res.render('buy', { title: 'Test Lab - YARO' });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects', { title: 'Projects - YARO' });
+});
+
+// Redirect old /sell route to /projects
 app.get('/sell', (req, res) => {
-    res.render('sell', { title: 'Sell Your Car - MaxCar' });
+    res.redirect(301, '/projects');
 });
 
 app.get('/contact', (req, res) => {
@@ -319,12 +319,24 @@ app.get('/car-detail/:id', async (req, res) => {
     }
 });
 
+// 404 Error Handler - Must be after all other routes
+app.use((req, res, next) => {
+    res.status(404).render('404', {
+        title: 'Page Not Found - YARO',
+        path: req.path
+    });
+});
+
 // Error handling middleware
 app.use((error, req, res, next) => {
     if (error instanceof multer.MulterError) {
         return res.status(400).json({ message: error.message });
     }
-    res.status(500).json({ message: error.message });
+    console.error('Server Error:', error.message);
+    res.status(error.status || 500).render('404', {
+        title: 'Error - YARO',
+        path: req.path
+    });
 });
 
 app.listen(PORT, () => {

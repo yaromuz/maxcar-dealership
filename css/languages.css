@@ -6,19 +6,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
-    font-size: 2rem;
+    height: 100vh;
+    font-size: 3rem;
     font-weight: bold;
     color: #ffffff;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.intro-text {
-    margin-top: -2px;
 }
 
 .rolles-container {
@@ -30,8 +21,8 @@
 .role {
     display: block;
     height: 100px;
-    padding-left: 6px;
-    animation: role-change 86s infinite;
+    animation: role-change 166s infinite;
+    text-align: center;
 }
 
 /* Animation keyframes for cycling through all 43 languages */
