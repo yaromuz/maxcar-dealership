@@ -25,15 +25,21 @@
 }
 
 @keyframes glitch {
-    0%, 90%, 100% {
+
+    0%,
+    90%,
+    100% {
         transform: translate(0);
     }
+
     92% {
         transform: translate(-2px, 2px);
     }
+
     94% {
         transform: translate(2px, -2px);
     }
+
     96% {
         transform: translate(-2px, 2px);
     }
@@ -65,9 +71,12 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.7;
     }
@@ -128,12 +137,15 @@
         transform: translateY(100vh) scale(0);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     90% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100vh) scale(1);
         opacity: 0;
@@ -238,9 +250,17 @@
     display: inline-block;
 }
 
-.console-btn.red { background: #ff5f56; }
-.console-btn.yellow { background: #ffbd2e; }
-.console-btn.green { background: #27c93f; }
+.console-btn.red {
+    background: #ff5f56;
+}
+
+.console-btn.yellow {
+    background: #ffbd2e;
+}
+
+.console-btn.green {
+    background: #27c93f;
+}
 
 .console-title {
     color: #999;
@@ -277,8 +297,13 @@
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 .cursor-blink {
@@ -286,8 +311,16 @@
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Test Grid */
@@ -374,20 +407,20 @@
         min-height: 50vh;
         padding: 60px 0;
     }
-    
+
     .glitch-text {
         font-size: 2.5rem;
     }
-    
+
     .test-stats {
         gap: 1rem;
     }
-    
+
     .stat-item {
         padding: 1rem;
         min-width: 100px;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }

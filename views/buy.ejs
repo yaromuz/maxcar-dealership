@@ -5,7 +5,8 @@
             <div class="col-lg-10">
                 <div class="hero-content">
                     <h1 class="display-2 fw-bold text-light mb-4 glitch-text" data-text="Test Lab">Test Lab</h1>
-                    <p class="lead fs-3 text-light mb-5">Experimenting with ideas, testing features, and breaking things beautifully</p>
+                    <p class="lead fs-3 text-light mb-5">Experimenting with ideas, testing features, and breaking things
+                        beautifully</p>
                     <div class="test-stats d-flex justify-content-center gap-5 flex-wrap">
                         <div class="stat-item">
                             <div class="stat-number text-primary display-4">∞</div>
@@ -148,17 +149,18 @@
             </div>
         </div>
         <div class="row g-4">
-            <% for(let i = 1; i <= 6; i++) { %>
+            <% for(let i=1; i <=6; i++) { %>
                 <div class="col-md-6 col-lg-4">
                     <div class="test-card">
                         <div class="test-card-header">
-                            <span class="test-number">#<%= String(i).padStart(3, '0') %></span>
+                            <span class="test-number">#<%= String(i).padStart(3, '0' ) %></span>
                             <span class="test-status">
                                 <i class="bi bi-hourglass-split text-warning"></i>
                             </span>
                         </div>
                         <div class="test-card-body">
-                            <h4 class="text-light mb-3">Test Slot <%= i %></h4>
+                            <h4 class="text-light mb-3">Test Slot <%= i %>
+                            </h4>
                             <p class="test-description">Placeholder for upcoming test</p>
                             <div class="test-meta">
                                 <span class="test-tag">Pending</span>
@@ -169,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-            <% } %>
+                <% } %>
         </div>
     </div>
 </section>
@@ -181,7 +183,8 @@
             <div class="col-lg-8">
                 <div class="cta-box">
                     <h2 class="text-light mb-3">Want to collaborate?</h2>
-                    <p class="text-light mb-4">Have an idea for a test or experiment? Let's build something cool together!</p>
+                    <p class="text-light mb-4">Have an idea for a test or experiment? Let's build something cool
+                        together!</p>
                     <div class="d-flex justify-content-center gap-3 flex-wrap">
                         <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
                         <a href="/projects" class="btn btn-outline-light btn-lg">View Projects</a>
